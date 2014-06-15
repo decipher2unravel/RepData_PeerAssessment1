@@ -5,8 +5,8 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r}
 
+```r
 #Loading and preprocessing the data
 ##Read file
 Data <- read.csv("activity.csv", header=TRUE)
@@ -95,10 +95,18 @@ df <- data.frame(each_5min_interval, steps_averaged)
 #Create a time series plot of the 5-minute interval(x-axis)  and the average number of steps taken, averaged across all days (y-axis)
 
 library(ggplot2)
+```
+
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-11.png) 
+
+```r
 ggplot(df, aes(each_5min_interval, steps_averaged)) +geom_line() +
         scale_x_continuous(breaks=c(seq(0,2400,60)))
+```
 
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-12.png) 
 
+```r
 #Question 2: Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ##Deriving the maximum steps from the average of steps
 max_steps <- max(df2[,2])
